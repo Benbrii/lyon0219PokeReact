@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './Map/Map';
+import Character from './Map/Tiles/Character'
 
 class Game extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Game extends Component {
     return (
       <div className="gameContainer">
         <Map />
+        <Character />
       </div>
     );
   }

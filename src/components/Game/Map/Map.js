@@ -12,8 +12,8 @@ class Map extends Component {
     this.state = {
       map: [],
       view: [],
-      viewWidth: 13,
-      viewHeight: 13,
+      viewWidth: 15,
+      viewHeight: 15,
       viewX: 11,
       viewY: 17,
     };
@@ -26,17 +26,25 @@ class Map extends Component {
     };
 
     this.theme = {
-      width: '832px',
-      height: '832px',
-      overflow: 'hidden',
+      transform: 'translate(-50%, -50%)',
+      width: '960px',
+      height: '960px',
+      //overflow: 'hidden',
       border: '4px solid black',
       margin: '0 auto',
       textAlign: 'center',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transition : 'all 500ms',
     };
+    this.left = 50;
 
     this.loaded = false;
     this.asyncKeys = [];
     this.debugMode = true;
+    this.scrollSpeed = 8;
+    this.lastScroll = 0;
     if (this.debugMode) {
       this.renderCounter = 0;
       this.loopCounter = 0;
@@ -74,47 +82,82 @@ class Map extends Component {
 
   run = () => {
     if (this.debugMode) this.loopCounter += 1;
-    const { map, viewWidth, viewHeight } = this.state;
-    let { viewY, viewX } = this.state;
-    const { view } = this.state;
+    this.checkKeyboard();
+  }
 
+  checkKeyboard = () => {
     const step = 1;
-    let change;
     for (let i = 0; i < Object.keys(this.keys).length; i += 1) {
       if (Object.values(this.keys)[i] === this.asyncKeys[i]) {
-        change = true;
-        if (this.asyncKeys[i] === 38
-             && !view[Math.floor(view.length / 2 - step)][Math.floor(view.length / 2)]
-               .includes(-1)) {
-          viewY -= step;
+
+        if (this.asyncKeys[i] === 38){
+          this.moveTo('up', step)
           break;
         }
-        if (this.asyncKeys[i] === 40
-            && !view[Math.floor(view.length / 2 + step)][Math.floor(view.length / 2)]
-              .includes(-1)) {
-          viewY += step;
+        if (this.asyncKeys[i] === 40){
+          this.moveTo('down', step)
           break;
         }
-        if (this.asyncKeys[i] === 37
-            && !view[Math.floor(view.length / 2)][Math.floor(view.length / 2 - step)]
-              .includes(-1)) {
-          viewX -= step;
+        if (this.asyncKeys[i] === 37){
+          this.moveTo('left', step)
           break;
         }
-        if (this.asyncKeys[i] === 39
-             && !view[Math.floor(view.length / 2)][Math.floor(view.length / 2 + step)]
-               .includes(-1)) {
-          viewX += step;
+        if (this.asyncKeys[i] === 39){
+          this.moveTo('right', step)
           break;
         }
       }
     }
-    if (!change) return;
+  }
+
+  moveTo = (direction, step) => {
+    if (performance.now() - this.lastScroll < 1000 / this.scrollSpeed) return
+    const { map, view, viewWidth, viewHeight } = this.state;
+    let { viewY, viewX } = this.state;
+    switch (direction) {
+      case 'up':
+        if (!view[Math.floor(view.length / 2 - step)][Math.floor(view.length / 2)]
+          .includes(-1)) {
+          viewY -= step;
+        }
+        break;
+
+      case 'down':
+        if (!view[Math.floor(view.length / 2 + step)][Math.floor(view.length / 2)].includes(-1)) {
+          viewY += step;
+        }
+        break;
+
+      case 'left':
+        if (!view[Math.floor(view.length / 2)][Math.floor(view.length / 2 - step)]
+          .includes(-1)) {
+          viewX -= step;
+          this.left += 5
+          console.log(this.left)
+        }
+        break;
+
+      case 'right':
+        if (!view[Math.floor(view.length / 2)][Math.floor(view.length / 2 + step)]
+          .includes(-1)) {
+          viewX += step;
+          this.left -= 5
+          console.log(this.left)
+        }
+        break;
+
+      default:
+        return;
+    }
     this.setState({
       viewY,
       viewX,
     },
-    () => this.updateViewMap(map, viewX, viewY, viewWidth, viewHeight));
+      () => {
+        this.updateViewMap(map, viewX, viewY, viewWidth, viewHeight); 
+        this.clean();
+        this.lastScroll = performance.now()
+      });
   }
 
   keyPressed = (e) => {
@@ -176,6 +219,10 @@ class Map extends Component {
     this.setState({ view: [...subMatrix] });
   }
 
+  clean = () => {
+
+  }
+
   debug = () => {
     if (!this.debugMode) return;
     this.renderCounter += 1;
@@ -186,12 +233,12 @@ class Map extends Component {
   render() {
     const { view } = this.state;
     return (
-      <div style={this.theme}>
+      <div style={{...this.theme, left: `${this.left}%`}}>
         {this.debugMode ? this.debug() : null}
         {this.loaded ? view.map((row, i) => (
           <MapRow data={row} index={i} key={`row-${i + 1}`} />
         )) : <h1 style={{ margin: '50% auto' }}>LOADING..</h1>}
-        <Character />
+        
       </div>
     );
   }
