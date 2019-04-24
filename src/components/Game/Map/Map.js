@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MapRow from './MapRow';
 import Player from './Tiles/Character';
 import { Character, Pokemon } from '../character';
+import { music } from '../audio';
 
 const reqMaps = require.context('../../../assets/maps', true, /\.txt$/);
 const reqTiles = require.context('../../../assets/tiles', true, /\.png$/);
@@ -48,11 +49,13 @@ class Map extends Component {
 
   componentWillMount() {
     this.init();
+    music.play();
   }
 
 
   componentWillUnmount() {
     this.end();
+    music.src = '';
   }
 
   init = async () => {
@@ -86,7 +89,9 @@ class Map extends Component {
 
 
       if ((this.pokemon1.x < this.state.viewX - 1 && this.pokemon1.x < this.state.viewX + 12) && (this.pokemon1.y >= this.state.viewY && this.pokemon1.y < this.state.viewY + this.state.viewHeight - 1)) {
+        console.log(this.state.viewX - this.pokemon1.x, this.pokemon1.y - this.state.viewY);
         this.state.view[this.pokemon1.y - this.state.viewY][this.state.viewX - this.pokemon1.x].push(1174);
+        console.log(this.state.view);
       }
     }
 

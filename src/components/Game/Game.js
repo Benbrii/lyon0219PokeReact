@@ -4,6 +4,7 @@ import './Game.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import Map from './Map/Map';
+import { menu } from './audio';
 
 class Game extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Game extends Component {
       <div className="Background" style={{ display: 'block' }}>
 
         <div className="LeftMenu">
-          <NavLink to="/menu">
+          <NavLink to="/menu" onClick={menu.play()}>
             <button type="button" className="RoundBtn">
               <FontAwesomeIcon icon={faUser} />
             </button>

@@ -5,7 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/Logo.png';
 
+
 const Menu = () => (
+
+
   <div className="Background">
 
     <div className="LeftMenu">
