@@ -20,12 +20,12 @@ class MapRow extends Component {
 
       const tilesSet = data.map((tiles, i) => {
         if (tiles.length > 1 && tiles.includes('-1')) {
-          return <Tile data={tiles}  key={`tile-${i}-${index}`} position={`tile-${i}-${index}`}/>;
+          return <Tile data={tiles} key={`tile-${i + 1}`} index={i} />;
         } if (tiles.length > 1) {
-          return <Tile3D data={tiles}  key={`tile-${i}-${index}`} position={`tile-${i}-${index}`}/>;
+          return <Tile3D data={tiles} key={`tile-${i + 1}`} index={i} />;
         }
 
-        return <Tile data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`}/>;
+        return <Tile data={tiles} key={`tile-${i + 1}`} index={i} />;
       });
       return (
         <div className={`row row-${index}`} style={this.theme}>

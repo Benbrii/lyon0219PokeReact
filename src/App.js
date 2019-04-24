@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import {
+  Route, Switch, BrowserRouter, NavLink,
+} from 'react-router-dom';
 import Home from './components/Home/Home';
-import Menu from './components/Menu/Menu';
 import Game from './components/Game/Game';
-import Commands from './components/Commands/Commands';
 import Pokedex from './components/Pokedex/Pokedex';
+
 import './App.css';
-import CreationProfile from './components/Profil/CreationProfile';
 
 class App extends Component {
   constructor(props) {
@@ -19,18 +19,27 @@ class App extends Component {
       <div className="App">
         <div>
           <BrowserRouter>
+
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/menu" component={Menu} />
               <Route path="/play" component={Game} />
-              <Route
-                path='/playvs'
-                render={(props) => <Game {...props} players={2}/>}
-              />
               <Route path="/pokedex" component={Pokedex} />
-              <Route path="/commands" component={Commands} />
-              <Route path="/creation" component={CreationProfile} />
             </Switch>
+            <NavLink to="/play">
+              {' '}
+              <button
+                style={{
+                  backgroundColor: 'red', border: '5px solid black', height: '200px', width: '600px', fontSize: '10vh', marginTop: '20%',
+                }}
+                type="button"
+              >
+                {' '}
+Play
+                {' '}
+
+              </button>
+              {' '}
+            </NavLink>
           </BrowserRouter>
         </div>
       </div>

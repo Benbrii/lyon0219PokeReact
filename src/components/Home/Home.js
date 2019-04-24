@@ -1,14 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import '../../App.css';
-import logo from '../../images/Logo.png';
+
 
 const Home = () => (
-  <div className="Home">
-    <img src={logo} className="Logo" alt="PokeReact logo" />
-    <NavLink to="/menu">
-      <button type="button" className="Button"> Play now ! </button>
-    </NavLink>
+  <div>
+    <h1>Welcome to PokeReact !</h1>
   </div>
 );
 
