@@ -1,5 +1,7 @@
-.gameContainer{
+.gameContainer {
     padding: 2% 5%;
+    /* width: 850px;
+    height: 850px; */
 }
 
 .instanceContainer {
@@ -9,3 +11,27 @@
     margin: 5px;
     box-shadow: -8px 8px #1D2C5E;
 }
+
+/* instanceContainer {
+    display: inline-block;
+    border: 7px solid #395EA9;
+    margin: 5px;
+    box-shadow: -8px 8px #1D2C5E;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    transform: scale(0.9);
+} */
+
+/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .instanceContainer {
+        display: inline-block;
+        border: 7px solid #395EA9;
+        margin: 5px;
+        box-shadow: -8px 8px #1D2C5E;
+        position: absolute;
+        top: -200px;
+        left: -30px;
+        transform: scale(0.4);
+    }
+} */

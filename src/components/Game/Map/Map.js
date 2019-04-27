@@ -5,6 +5,7 @@ import Player from './Tiles/Character';
 import { ableToMove } from '../utils';
 import Capture from '../../Pokedex/Capture';
 import { Pokemon } from '../character';
+import { GAME_VIEWPORT_SIZE, GAME_VIEWPORT_SIZE_LG, TILE_WIDTH } from '../constants'
 
 const reqMaps = require.context('../../../assets/maps', true, /\.txt$/);
 
@@ -24,9 +25,11 @@ class Map extends Component {
       visiblePokemons: [],
     };
 
+    //this.tileWidth = window.innerWidth < 950 ? Math.floor((window.innerWidth - 10) / TILE_WIDTH)  : 64;
+
     this.theme = {
-      width: '832px',
-      height: '832px',
+      width: `${this.props.viewportConfig.viewportSize}px`,
+      height: `${this.props.viewportConfig.viewportSize}px`,
       overflow: 'hidden',
       margin: '0 auto',
       textAlign: 'center',
@@ -50,6 +53,10 @@ class Map extends Component {
 
   componentWillUnmount() {
     this.end();
+  }
+
+  componentDidUpdate(){
+
   }
 
   init = async () => {
@@ -283,13 +290,13 @@ class Map extends Component {
       <div style={this.theme}>
         {this.debugMode ? this.debug() : null}
         {this.loaded ? view.map((row, i) => (
-          <MapRow data={row} index={i} key={`row-${i + 1}`} />
+          <MapRow data={row} index={i} key={`row-${i + 1}`} viewportConfig={this.props.viewportConfig}/>
         )) : <h1 style={{ margin: '50% auto' }}>LOADING..</h1>}
         <Player />
 
         {this.catched ? <Capture winner={winner} catched={this.catched} /> : null}
 
-        <Player activeKeys={asyncKeys} direction={characterDirection} />
+        <Player activeKeys={asyncKeys} direction={characterDirection} viewportConfig={this.props.viewportConfig}/>
       </div>
     );
   }

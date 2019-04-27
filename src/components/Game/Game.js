@@ -5,6 +5,7 @@ import './Game.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import Map from './Map/Map';
+import { TILE_WIDTH } from './constants'
 
 const reqTiles = require.context('../../assets/tiles', true, /\.png$/);
 const reqPokemons = require.context('../../assets/pokemons', true, /\.png$/);
@@ -14,6 +15,8 @@ class Game extends Component {
     super(props);
     this.state = {
       playersPos: [],
+      tileSize: 64,
+      viewportSize: 832,
     };
 
     this.asyncKeys = [];
@@ -27,13 +30,37 @@ class Game extends Component {
     }
     document.body.addEventListener('keydown', this.keyPressed);
     document.body.addEventListener('keyup', this.keyReleased);
+    window.addEventListener('resize', this.updateWindowDimensions);
     this.loadTiles(reqTiles.keys());
     this.loadPokemons(reqPokemons.keys());
+    this.updateWindowDimensions();
   }
 
   componentWillUnmount() {
     document.body.removeEventListener('keydown', this.keyPressed);
     document.body.removeEventListener('keyup', this.keyReleased);
+  }
+
+  updateWindowDimensions(){
+    if (!this.state) return
+    let { tileSize, viewportSize } = this.state;
+    this.screenSize = {};
+    this.screenSize.width = window.innerWidth;
+    this.screenSize.height = window.innerHeight;
+    console.log(this.screenSize.width, this.screenSize.height)
+    tileSize = window.innerWidth < 950 ? (window.innerWidth - 10) / TILE_WIDTH  : 64;
+    viewportSize = tileSize * TILE_WIDTH;
+    this.setState({tileSize, viewportSize})
+  }
+
+  disableScaling() {
+    document.head.childNodes.forEach((node) => {
+      //console.log(node)
+      if (node.name === 'viewport') {
+        node.content = 'width=device-width, user-scalable=no';
+        console.log('hhh')
+      }
+    });
   }
 
   loadTiles = (tilesKeys) => {
@@ -103,9 +130,10 @@ class Game extends Component {
   }
 
   createGameInstances = (num) => {
+    const { tileSize, viewportSize } = this.state;
     const instances = [];
     for (let i = 0; i < num; i += 1) {
-      instances.push(<div className="instanceContainer"><Map controller={i} reportPosition={this.getPlayersPosition} controls={this.controls.slice(4 * i, this.controls.length * (0.5 * (i + 1)))} asyncKeys={this.asyncKeys.slice(4 * i, this.controls.length * (0.5 * (i + 1)))} /></div>);
+      instances.push(<div className="instanceContainer"><Map controller={i} reportPosition={this.getPlayersPosition} controls={this.controls.slice(4 * i, this.controls.length * (0.5 * (i + 1)))} asyncKeys={this.asyncKeys.slice(4 * i, this.controls.length * (0.5 * (i + 1)))} viewportConfig={{tileSize: tileSize, viewportSize: viewportSize}}/></div>);
     }
     return instances;
   }

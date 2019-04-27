@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './Character.css';
 
-class Player extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Player = (props) => {
+  const { viewportConfig, direction } = props;
+  //console.log(JSON.stringify(viewportConfig.tileSize))
+  // if (props.viewportConfig.tileSize){}
+  // const theme = {
+  //   width: `${viewportConfig.tileSize}px`,
+  //   height: `${viewportConfig.tileSize}px`,
+  // }
 
-  render() {
-    const { direction } = this.props;
-    return (
-      <div className={direction} />
-    );
-  }
-}
+  return <div className={direction} />
+};
 
 export default Player;
+
+
