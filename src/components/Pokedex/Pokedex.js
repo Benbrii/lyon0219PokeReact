@@ -24,8 +24,8 @@ class Pokedex extends Component {
 
   componentWillMount() {
     const { pokemonid } = this.state;
-    const { history } = this.props;
-    if (!localStorage.getItem(this.props.match.params.player ? 'userActive1' : 'userActive0')) {
+    const { history, match } = this.props;
+    if (!localStorage.getItem(match.params.player ? 'userActive1' : 'userActive0')) {
       history.push('/');
       return;
     }
@@ -45,12 +45,14 @@ class Pokedex extends Component {
   }
 
   checkCapturedPokemon = () => {
-    this.userName = localStorage.getItem(this.props.match.params.player ? 'userActive1' : 'userActive0');
+    const { match } = this.props;
+    this.userName = localStorage.getItem(match.params.player ? 'userActive1' : 'userActive0');
     this.pokemon = JSON.parse(localStorage.getItem(this.userName)).pokemon;
   }
 
   displayTitle = () => {
-    this.userActive = localStorage.getItem(this.props.match.params.player);
+    const { match } = this.props;
+    this.userActive = localStorage.getItem(match.params.player);
   }
 
   handleOnClick(id) {
