@@ -10,7 +10,7 @@ export default class Capture extends React.Component {
     this.pokemon = [];
     this.state = {
       x: -1000,
-    }
+    };
     this.theme = {
       position: 'fixed',
       top: '20%',
@@ -19,19 +19,19 @@ export default class Capture extends React.Component {
       backgroundColor: 'rgb(44, 88, 177)',
       border: '10px solid black',
       transition: 'all 750ms',
-    }
+    };
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ x: 0 }, () => setTimeout(() => this.setState({ x: -1000 }), 4000))
+      this.setState({ x: 0 }, () => setTimeout(() => this.setState({ x: -1000 }), 4000));
     }, 500);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
       setTimeout(() => {
-        this.setState({ x: 0 }, () => setTimeout(() => this.setState({ x: -1000 }), 4000))
+        this.setState({ x: 0 }, () => setTimeout(() => this.setState({ x: -1000 }), 4000));
       }, 500);
     }
   }
@@ -40,7 +40,7 @@ export default class Capture extends React.Component {
   render() {
     const { pokemon, player, name } = this.props;
     const { x } = this.state;
-    let pos = {};
+    const pos = {};
     if (player === 1) {
       pos.right = `${x}px`;
     } else {
@@ -57,7 +57,7 @@ export default class Capture extends React.Component {
 
         <div className="footer">
           <h1 className="textModal">{`${name} catched ${pokemon}`}</h1>
-          <NavLink to="/pokedex">
+          <NavLink to={`/pokedex${player > 0 ? ':player2' : ''}`}>
             <button type="button" className="Button"> Go to Pokedex </button>
           </NavLink>
 

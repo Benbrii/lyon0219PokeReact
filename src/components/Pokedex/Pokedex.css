@@ -26,6 +26,38 @@
   background-color: #e61515;
 }
 
+.buttontitle, .buttontitle {
+  font-family: 'Press Start 2P', cursive;
+  color: #395EA9;
+  background-color: #FFCB05;
+  border-radius: 50px;
+  border-color: #395EA9;
+  border-style: solid;
+  border-width: 8px;
+  padding: 12px;
+  margin: 24px;
+  box-shadow: -6px 6px #1D2C5E, inset -6px 6px #C7A008;
+  width: 20vw;
+  min-width: 222px;
+}
+
+.buttontitle:hover {
+  cursor: pointer;
+  background-color: #FFE000;
+  transition: 0.3s;
+}
+.buttontitle:active {
+  cursor: pointer;
+  background-color: #FFE000;
+  box-shadow: 0px 0px #1D2C5E;
+  transform: translate(-6px, 6px);
+  transition: 0.3s;
+}
+
+.newP {
+  font-size: 2em !important;
+}
+
 .pokedexbuttons {
   padding: 5px;
   width: 55px;
