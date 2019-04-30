@@ -19,6 +19,7 @@ import Carolina from '../../assets/characters/character_10__Carolina.png';
 import Amana from '../../assets/characters/character_11__Amana.png';
 import Watson from '../../assets/characters/character_12__Watson.png';
 import '../../App.css';
+import './Profile.scss'
 
 class Profile extends Component {
   constructor(props) {
@@ -95,49 +96,64 @@ class Profile extends Component {
     const { profils } = this.state;
     const profilInformation = (userProfils) => {
       const out = [];
-      const template = (profil, index) => (
-        <div className="profilContainer" id={`player${index}`}>
-          <div>
-            <p>
-              <span className="Yellow">
-                {`Player ${index + 1}`}
-,
+      const template = (profil, index) => {
+        const { pokemon } = profils[index];
+        const uniqPokemon = [...new Set(pokemon)];
+        return (
+          <div className="profilContainer" id={`player${index}`}>
+            <div>
+              <p>
+                <span className="Yellow">
+                  {`Player ${index + 1}`}
+                  ,
                 {' '}
-you’re now logged in as
+                  you’re now logged in as
               </span>
-              {' '}
-              {profil.name}
-            </p>
-            <div className="changeProfil">
-              <span>
-                I’m not
-              </span>
-              {' '}
-              {profil.name}
-              .
-              {' '}
-              <NavLink to="./creation" className="Yellow">
                 {' '}
-                Use an other profil.
+                {profil.name}
+              </p>
+              <div className="changeProfil">
+                <span>
+                  I’m not
+              </span>
+                {' '}
+                {profil.name}
+                .
+              {' '}
+                <NavLink to="./creation" className="Yellow">
+                  {' '}
+                  Use an other profil.
               </NavLink>
+              </div>
+            </div>
+            <div>
+              <p>
+                Trainer style:
+              <br />
+                {this.recupTrainer(profil)}
+              </p>
+            </div>
+            <div>
+              <p>
+                Pokemons:
+              </p>
+
+              <span><p style={{ fontSize: '150%', display: 'inline' }}> First pokemons : {this.recupPokemon(profil)}</p></span>
+
+              <div className="stat-levels">
+                <p style={{fontSize: '125%'}}>You captured {uniqPokemon.length} of the 151 Pokemons</p>
+                <div className="stat-1 stat-bar">
+                  <span className="stat-bar-rating" role="stat-bar" style={{ width: `${(uniqPokemon.length / 151) * 100}%` }}></span>
+                </div>
+              </div>
+              <NavLink to={index > 0 ? '/pokedex:' : '/pokedex'}>
+            <button type="button" className="Button"> Go to Pokedex </button>
+          </NavLink>
+
             </div>
           </div>
-          <div>
-            <p>
-              Trainer style:
-              <br />
-              {this.recupTrainer(profil)}
-            </p>
-          </div>
-          <div>
-            <p>
-              First Pokemon:
-              <br />
-              {this.recupPokemon(profil)}
-            </p>
-          </div>
-        </div>
-      );
+        );
+      }
       userProfils.map((profil, index) => out.push(template(profil, index)));
       return out;
     };
