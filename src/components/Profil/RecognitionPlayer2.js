@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import '../../App.css';
@@ -60,7 +59,7 @@ class Recognition extends Component {
           <br />
           <span className="Yellow">Player 2:</span>
           <br />
-          What's your trainer name ?
+          What’s your trainer name ?
         </p>
         {erreur ? (
           <p>

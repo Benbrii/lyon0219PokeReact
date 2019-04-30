@@ -7,7 +7,7 @@ const Tile3D = (props) => {
     <div className="tile3DContainer">
       {data.map((tile, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <div className={`tile3D tile-${tile === -1 ? 'collide' : tile} ${position}`} key={index} />
+        <div className={`tile3D tile-${tile === -1 ? 'collide' : tile} ${tile} ${position}`} key={index} />
       ))}
     </div>
   );

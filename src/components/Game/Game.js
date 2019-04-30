@@ -8,6 +8,7 @@ import Map from './Map/Map';
 
 const reqTiles = require.context('../../assets/tiles', true, /\.png$/);
 const reqPokemons = require.context('../../assets/pokemons', true, /\.png$/);
+const reqTrainer = require.context('../../assets/characters', true, /\.png$/);
 
 class Game extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class Game extends Component {
     document.body.addEventListener('keyup', this.keyReleased);
     this.loadTiles(reqTiles.keys());
     this.loadPokemons(reqPokemons.keys());
+    this.loadTrainer(reqTrainer.keys());
   }
 
   componentWillUnmount() {
@@ -60,7 +62,25 @@ class Game extends Component {
     document.head.appendChild(style);
   }
 
-  loadPokemons = (pokeKeys) => {
+  loadTrainer = (trainerKeys) => {
+    console.log(trainerKeys[0].substring(2).split('.').shift())
+    document.head.childNodes.forEach((node) => {
+      if (node.id === 'trainerSet') {
+        node.remove();
+      }
+    });
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.id = 'trainerSet';
+    let css = '';
+    for (let i = 0; i < trainerKeys.length; i += 1) {
+      css += `.${trainerKeys[i].substring(2).split('.').shift()} {background-image: url(${reqTrainer(trainerKeys[i], true)});\n z-index: 10}\n`;
+    }
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+  }
+
+  loadPokemons = (pokeKeys) => {  
     document.head.childNodes.forEach((node) => {
       if (node.id === 'pokeSet') {
         node.remove();
@@ -140,7 +160,8 @@ class Game extends Component {
   }
 
   getPlayersPosition = (data, poke, updated) => {
-    let { pokemons, players } = this.state;
+    let { pokemons } = this.state;
+    const { players } = this.state;
     if (data.player === 0) {
       players[data.player] = { pos: { x: data.x, y: data.y }, profile: data.profile };
       if (poke) pokemons = poke;

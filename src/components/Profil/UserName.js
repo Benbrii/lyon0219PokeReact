@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 import '../../App.css';
 
@@ -35,13 +34,13 @@ render() {
   return (
     <div className="Flex">
       <p>
-        It's seems you don't have any profile yet!
+        It’s seems you don’t have any profile yet!
         <br />
         Please create one
       </p>
       {erreur ? (
         <p>
-Your name can't be
+Your name can’t be
           {' '}
           {erreur}
         </p>

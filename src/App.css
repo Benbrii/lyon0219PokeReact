@@ -390,3 +390,25 @@ h1 {
   75%  {width: 68vw;}
   90% {width: 66vw;}
 }
+
+.profil2players { 
+  display: flex;
+  flex-direction: row;
+ }
+
+#player0{
+  padding-left: 10%;
+  padding-right: 5%;
+}
+
+#player1{
+  border-left : solid 4px yellow;
+  padding-left: 10%;
+  padding-right: 5%;
+}
+
+.profilContainer{
+  margin-left: 4%;
+ }
+
+  

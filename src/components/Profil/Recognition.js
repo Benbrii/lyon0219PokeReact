@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 import '../../App.css';
 import { withRouter } from 'react-router-dom';
@@ -43,7 +42,7 @@ class Recognition extends Component {
         <p>
           Hi there!
           <br />
-          What's your trainer name?
+          What’s your trainer name?
         </p>
         <input className="Input" id="name" type="text" placeholder="Your name" onChange={this.handleChange} />
         <button className="Button" id="submitBtn" type="button" onClick={this.handleSubmit}>Go !</button>

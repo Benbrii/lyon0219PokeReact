@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Tile from './Tiles/Tile';
 import Tile3D from './Tiles/Tile3D';
 
+const MemorizedTile = React.memo(Tile);
+const MemorizeTile3D = React.memo(Tile3D);
+
 class MapRow extends Component {
     theme = {
       height: '64px',
@@ -21,12 +24,12 @@ class MapRow extends Component {
 
       const tilesSet = data.map((tiles, i) => {
         if (tiles.length > 1 && tiles.includes('-1')) {
-          return <Tile data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
+          return <MemorizedTile data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
         } if (tiles.length > 1) {
-          return <Tile3D data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
+          return <MemorizeTile3D data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
         }
 
-        return <Tile data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
+        return <MemorizedTile data={tiles} key={`tile-${i}-${index}`} position={`tile-${i}-${index}`} />;
       });
       return (
         <div className={`row row-${index}`} style={this.theme}>

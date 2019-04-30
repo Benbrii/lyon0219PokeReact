@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -97,21 +96,21 @@ class Profile extends Component {
     const profilInformation = (userProfils) => {
       const out = [];
       const template = (profil, index) => (
-        <div>
+        <div className="profilContainer" id={`player${index}`}>
           <div>
             <p>
               <span className="Yellow">
                 {`Player ${index + 1}`}
 ,
                 {' '}
-you're now logged in as
+you’re now logged in as
               </span>
               {' '}
               {profil.name}
             </p>
             <div className="changeProfil">
               <span>
-                I'm not
+                I’m not
               </span>
               {' '}
               {profil.name}
@@ -126,20 +125,19 @@ you're now logged in as
           <div>
             <p>
               Trainer style:
-              {' '}
+              <br />
               {this.recupTrainer(profil)}
             </p>
           </div>
           <div>
             <p>
               First Pokemon:
-              {' '}
+              <br />
               {this.recupPokemon(profil)}
             </p>
           </div>
         </div>
       );
-
       userProfils.map((profil, index) => out.push(template(profil, index)));
       return out;
     };
@@ -153,9 +151,9 @@ you're now logged in as
             </button>
           </NavLink>
         </div>
-
-        {profilInformation(profils)}
-
+        <div className="profil2players">
+          {profilInformation(profils)}
+        </div>
       </div>
     );
   }
