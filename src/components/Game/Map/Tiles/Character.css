@@ -148,11 +148,6 @@
     background-size: cover;
     width: 64px;
     height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     z-index: 10;
 }
 .CharacterLeft1 {
@@ -162,11 +157,6 @@
     background-size: cover;
     width: 64px;
     height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     z-index: 10;
 }
 .CharacterLeft2 {
@@ -176,11 +166,6 @@
     background-size: cover;
     width: 64px;
     height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     z-index: 10;
 }
 
@@ -249,10 +234,6 @@
 .characterContainer{
     width: 64px;
     height: 100px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    position: absolute;
     z-index: 10;
 }
 

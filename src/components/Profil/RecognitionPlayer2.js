@@ -65,7 +65,7 @@ class Recognition extends Component {
         {erreur ? (
           <p>
             <span className="Error">
-This name is not available,
+            This name is not available,
               <br />
             Please, choose another one!
             </span>

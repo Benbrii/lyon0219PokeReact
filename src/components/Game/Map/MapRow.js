@@ -5,7 +5,7 @@ import Tile3D from './Tiles/Tile3D';
 
 class MapRow extends Component {
     theme = {
-      height: '64px',
+      height: '3.85vw',
       margin: 0,
       padding: 0,
     }

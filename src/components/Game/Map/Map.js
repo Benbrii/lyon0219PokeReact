@@ -28,8 +28,8 @@ class Map extends Component {
     };
 
     this.theme = {
-      width: '832px',
-      height: '832px',
+      maxWidth: '50vw',
+      maxHeight: '50vw',
       overflow: 'hidden',
       margin: '0 auto',
       textAlign: 'center',

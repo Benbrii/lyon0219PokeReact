@@ -128,13 +128,42 @@ class Game extends Component {
       this.setState({
         bonus2: 1,
       });
-    }, 3000);
+    }, 5000);
   }
 
   createGameInstances = (num) => {
     const instances = [];
+    const { bonus, bonus2 } = this.state;
     for (let i = 0; i < num; i += 1) {
-      instances.push(<div className="instanceContainer"><Map controller={i} players={num} bonus={this.bonusGreyScale} bonus2={this.bonusGreyScale2} reportPosition={this.getPlayersPosition} getPlayerPosition={this.sendPlayerPositions} controls={this.controls.slice(6 * i, this.controls.length * (0.5 * (i + 1)))} asyncKeys={this.asyncKeys.slice(6 * i, this.controls.length * (0.5 * (i + 1)))} /></div>);
+      instances.push(
+        <div className="Flex2">
+          <div className="instanceContainer">
+
+            <div className="BonusMenu">
+              <div className="RoundBtn" style={{ filter: `grayscale(${bonus})` }}>
+                C
+              </div>
+              <div className="RoundBtn" style={{ filter: `grayscale(${bonus2})` }}>
+                S
+              </div>
+            </div>
+
+            <div className="Map">
+              <Map
+                controller={i}
+                players={num}
+                bonus={this.bonusGreyScale}
+                bonus2={this.bonusGreyScale2}
+                reportPosition={this.getPlayersPosition}
+                getPlayerPosition={this.sendPlayerPositions}
+                controls={this.controls.slice(6 * i, this.controls.length * (0.5 * (i + 1)))}
+                asyncKeys={this.asyncKeys.slice(6 * i, this.controls.length * (0.5 * (i + 1)))}
+              />
+            </div>
+
+          </div>
+        </div>,
+      );
     }
     return instances;
   }
@@ -164,13 +193,12 @@ class Game extends Component {
 
   render() {
     const { players } = this.props;
-    const { bonus, bonus2 } = this.state;
     return (
       <div className="Background" style={{ display: 'block' }}>
 
         <div className="LeftMenu">
           <NavLink to="/Menu">
-            <button type="button" className="RoundBtn">
+            <button className="RoundBtn" type="button">
               <FontAwesomeIcon icon={faBars} />
             </button>
           </NavLink>
@@ -178,20 +206,16 @@ class Game extends Component {
 
         <div className="RightMenu">
           <NavLink to={`/profil${players > 1 ? ':multi' : '/profil:'}`}>
-            <button type="button" className="RoundBtn">
+            <button className="RoundBtn" type="button">
               <FontAwesomeIcon icon={faUser} />
             </button>
           </NavLink>
           <NavLink to="/commands">
-            <button type="button" className="RoundBtn"> ? </button>
+            <button className="RoundBtn" type="button"> ? </button>
           </NavLink>
         </div>
-        <button type="button" className="RoundBtn Bonus" style={{ filter: `grayscale(${bonus})` }}> C </button>
-        <button type="button" className="RoundBtn Bonus1" style={{ filter: `grayscale(${bonus2})` }}> S </button>
 
-        <div className="gameContainer">
-          {this.createGameInstances(players || 1)}
-        </div>
+        {this.createGameInstances(players || 1)}
 
       </div>
     );
