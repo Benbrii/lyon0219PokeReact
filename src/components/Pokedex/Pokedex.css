@@ -1,11 +1,78 @@
 .Pokedex {
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 80vh;
-    padding-left: 10px;
-    margin: 50px auto;
-    background-color: black;
+  font-family: 'Orbitron', sans-serif !important;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 70vh;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 15px;
+  border: double black 10px;
+  display: flex;
+  background-color: #e61515;
+}
+
+.Buttons {
+  display: flex;
+  font-family: 'Orbitron', sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  height: 3vh;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 15px;
+  border: double black 10px;
+  background-color: #e61515;
+}
+
+.pokedexbuttons {
+  padding: 5px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: outset rgb(248, 187, 187) 6px;
+  transform: rotate(60deg);
+  background: radial-gradient( circle farthest-corner at 40% 25%, rgb(218, 237, 241) 9%, rgb(124, 214, 237) 20%, rgb(64, 90, 165) 62%, rgb(43, 125, 196) 100%);
+  cursor: pointer;
+}
+
+.pokedexbuttons:hover {
+  background: radial-gradient( circle farthest-corner at 40% 25%, rgb(233, 241, 218) 9%, rgb(184, 237, 124) 20%, rgb(64, 165, 106) 62%, rgb(43, 196, 145) 100%);
+}
+
+.pokedexbuttons:active {
+  background: radial-gradient( circle farthest-corner at 40% 25%, rgb(229, 255, 181) 9%, rgb(204, 237, 124) 20%, rgb(103, 165, 64) 62%, rgb(66, 204, 40) 100%);
+}
+
+.nextandpreviousbuttons {
+  color: black;
+}
+
+.pokedextitle {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2em;
+  color: #395EA9;
+  background-color: #FFCB05;
+  border-radius: 50px;
+  border-color: #395EA9;
+  border-style: solid;
+  border-width: 8px;
+  padding: 12px;
+  margin: 24px;
+  box-shadow: -6px 6px #1D2C5E, inset -6px 6px #C7A008;
+  width: 33vw;
+  min-width: 222px;
+}
+
+.pokedextitle:hover {
+  cursor: pointer;
+  background-color: #FFE000;
+}
+
+.pokedextitle:active {
+  cursor: pointer;
+  background-color: #FFE000;
+  box-shadow: 0px 0px #1D2C5E;
+  transform: translate(-6px, 6px);
 }

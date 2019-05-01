@@ -1,0 +1,17 @@
+.characterContainer{
+    width: 64px;
+    height: 64px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    z-index: 10;
+}
+
+.character{
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

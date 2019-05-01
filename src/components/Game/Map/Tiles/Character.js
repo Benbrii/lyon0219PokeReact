@@ -1,20 +1,13 @@
 import React from 'react';
-import front from '../../../../images/sacha/front.png';
+import './Character.css';
 
-const Character = () => (
-  <div style={{
-    backgroundImage: `url(${front})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    width: '32px',
-    height: '32px',
-    position: 'absolute',
-    justifyContent: 'center',
-    top: '42%',
-    left: '49%',
-  }}
-  />
+const Player = (props) => {
+  const { direction, username } = props;
+  return (
+    <div className='characterContainer'>
+      <div className={`${direction} character`} />
+    </div>
+  );
+}
 
-);
-
-export default Character;
+export default Player;

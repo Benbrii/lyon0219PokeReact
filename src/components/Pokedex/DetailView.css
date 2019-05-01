@@ -33,5 +33,38 @@
 }
 
 .data-char {
-  font-size: 10px;
+  font-size: 20px !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-weight: 400 !important;
+  color: black !important;
+}
+
+.data-wrapper {
+  border: inset 5px;
+  text-transform: capitalize;
+}
+
+.panel-row-control {
+  display: flex;
+  justify-content: space-around;
+}
+
+.controlbutton {
+  padding: 25px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-top: 50px;
+  border: outset rgb(248, 187, 187) 6px;
+  transform: rotate(180deg);
+  cursor: pointer;
+  background-color: #5ed75e;
+}
+
+.controlbutton:hover {
+  background-color: #72B413;
+}
+
+.controlbutton:active {
+  background-color: #A7DE58;
 }

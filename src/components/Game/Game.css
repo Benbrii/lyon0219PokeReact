@@ -1,0 +1,28 @@
+.gameContainer{
+    padding: 2% 5%;
+}
+
+.instanceContainer {
+    position: relative;
+    display: inline-block;
+    border: 7px solid #395EA9;
+    margin: 5px;
+    box-shadow: -8px 8px #1D2C5E;
+}
+
+.Bonus {
+    position: absolute;
+    left : 350px;
+    top : 500px;
+
+   
+}
+
+
+.Bonus1 {
+    position: absolute;
+    left : 350px;
+    top : 580px;
+    
+   
+}
