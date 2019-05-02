@@ -1,7 +1,9 @@
 .tile {
     float: left;
-    width: 3.85vw;
-    height: 3.85vw;
+    width: 7.69vw;
+    height: 7.69vw;
+    max-width: 7.69vh;
+    max-height: 7.69vh;
     background-position: center;
     background-size: cover;
     margin: 0;
@@ -10,8 +12,10 @@
 }
 
 .tile3D {
-    width: 3.85vw;
-    height: 3.85vw;
+    width: 7.69vw;
+    height: 7.69vw;
+    max-width: 7.69vh;
+    max-height: 7.69vh;
     background-position: center;
     background-size: cover;
     margin: 0;
@@ -24,8 +28,10 @@
 
 .tile3DContainer {
     float: left;
-    width: 3.85vw;
-    height: 3.85vw;
+    width: 7.69vw;
+    height: 7.69vw;
+    max-width: 7.69vh;
+    max-height: 7.69vh;
     padding: 0;
     margin: 0;
     position: relative;

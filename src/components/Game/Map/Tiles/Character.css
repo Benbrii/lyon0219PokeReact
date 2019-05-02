@@ -1,3 +1,53 @@
+.Character {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 7.69vh;
+    height: 7.69vh;
+    position: absolute;
+    top: 46.2%;
+    left: 46.2%;
+    z-index: 10;
+}
+
+.CharacterUp0 {
+    background-image: url("../../../../images/sacha/character_2_up0.png");
+}
+.CharacterUp1 {
+    background-image: url("../../../../images/sacha/character_2_up1.png");
+}
+.CharacterUp2 {
+    background-image: url("../../../../images/sacha/character_2_up2.png");
+}
+.CharacterDown0 {
+    background-image: url("../../../../images/sacha/character_2_down0.png");
+}
+.CharacterDown1 {
+    background-image: url("../../../../images/sacha/character_2_down1.png");
+}
+.CharacterDown2 {
+    background-image: url("../../../../images/sacha/character_2_down2.png");
+}
+.CharacterLeft0 {
+    background-image: url("../../../../images/sacha/character_2_left0.png");
+}
+.CharacterLeft1 {
+    background-image: url("../../../../images/sacha/character_2_left1.png");
+}
+.CharacterLeft2 {
+    background-image: url("../../../../images/sacha/character_2_left2.png");
+}
+.CharacterRight0 {
+    background-image: url("../../../../images/sacha/character_2_right0.png");
+}
+.CharacterRight1 {
+    background-image: url("../../../../images/sacha/character_2_right1.png");
+}
+.CharacterRight2 {
+    background-image: url("../../../../images/sacha/character_2_right2.png");
+}
+
+
 .CharacterUp {
     background-position: center;
     background-repeat: no-repeat;
@@ -17,49 +67,6 @@
     50% {background-image: url("../../../../images/sacha/character_2_up2.png");}
     100% {background-image: url("../../../../images/sacha/character_2_up1.png");}
 }
-.CharacterUp0 {
-    background-image: url("../../../../images/sacha/character_2_up0.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterUp1 {
-    background-image: url("../../../../images/sacha/character_2_up1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterUp2 {
-    background-image: url("../../../../images/sacha/character_2_up2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-
 .CharacterDown {
     background-position: center;
     background-repeat: no-repeat;
@@ -69,8 +76,8 @@
     position: absolute;
     justify-content: center;
     transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    top: 46.2%;
+    left: 46.2%;
     z-index: 10;
     animation: WalkingDown 0.5s infinite;
 }
@@ -79,49 +86,6 @@
     50% {background-image: url("../../../../images/sacha/character_2_down2.png");}
     100% {background-image: url("../../../../images/sacha/character_2_down1.png");}
 }
-.CharacterDown0 {
-    background-image: url("../../../../images/sacha/character_2_down0.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterDown1 {
-    background-image: url("../../../../images/sacha/character_2_down1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterDown2 {
-    background-image: url("../../../../images/sacha/character_2_down2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-
 .CharacterLeft {
     background-position: center;
     background-repeat: no-repeat;
@@ -131,8 +95,8 @@
     position: absolute;
     justify-content: center;
     transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    top: 46.2%;
+    left: 46.2%;
     z-index: 10;
     animation: WalkingLeft 0.5s infinite;
 }
@@ -141,34 +105,6 @@
     50% {background-image: url("../../../../images/sacha/character_2_left2.png");}
     100% {background-image: url("../../../../images/sacha/character_2_left1.png");}
 }
-.CharacterLeft0 {
-    background-image: url("../../../../images/sacha/character_2_left0.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    z-index: 10;
-}
-.CharacterLeft1 {
-    background-image: url("../../../../images/sacha/character_2_left1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    z-index: 10;
-}
-.CharacterLeft2 {
-    background-image: url("../../../../images/sacha/character_2_left2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    z-index: 10;
-}
-
 .CharacterRight {
     background-position: center;
     background-repeat: no-repeat;
@@ -178,8 +114,8 @@
     position: absolute;
     justify-content: center;
     transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    top: 46.2%;
+    left: 46.2%;
     z-index: 10;
     animation: WalkingRight 0.5s infinite;
 }
@@ -188,55 +124,9 @@
     50% {background-image: url("../../../../images/sacha/character_2_right2.png");}
     100% {background-image: url("../../../../images/sacha/character_2_right1.png");}
 }
-.CharacterRight0 {
-    background-image: url("../../../../images/sacha/character_2_right0.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterRight1 {
-    background-image: url("../../../../images/sacha/character_2_right1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
-.CharacterRight2 {
-    background-image: url("../../../../images/sacha/character_2_right2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-}
 
 .characterContainer{
     width: 64px;
     height: 100px;
     z-index: 10;
-}
-
-.username{
-
 }

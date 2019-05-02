@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Game.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBars } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUser, faBars, faAngleDoubleRight, faBolt, faCopyright,
+} from '@fortawesome/free-solid-svg-icons';
 import Map from './Map/Map';
 
 const reqTiles = require.context('../../assets/tiles', true, /\.png$/);
@@ -140,11 +142,23 @@ class Game extends Component {
           <div className="instanceContainer">
 
             <div className="BonusMenu">
-              <div className="RoundBtn" style={{ filter: `grayscale(${bonus})` }}>
-                C
+              <div className="BonusText">
+                Bonus :
               </div>
-              <div className="RoundBtn" style={{ filter: `grayscale(${bonus2})` }}>
-                S
+              <div className="Bonus" style={{ filter: `grayscale(${bonus})` }}>
+                <FontAwesomeIcon icon={faAngleDoubleRight} />
+              </div>
+              <div className="Bonus" style={{ filter: `grayscale(${bonus2})` }}>
+                <FontAwesomeIcon icon={faBolt} />
+              </div>
+              <div className="Bonus" style={{ filter: `grayscale(${bonus2})` }}>
+                <FontAwesomeIcon icon={faCopyright} />
+              </div>
+              <div className="BonusText">
+                Capture :
+              </div>
+              <div className="Bonus" style={{ filter: `grayscale(${bonus})` }}>
+                0
               </div>
             </div>
 

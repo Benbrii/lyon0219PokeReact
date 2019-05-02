@@ -28,11 +28,14 @@ class Map extends Component {
     };
 
     this.theme = {
-      maxWidth: '50vw',
-      maxHeight: '50vw',
+      maxWidth: '100vh',
+      maxHeight: '100vh',
+      Width: '100vw',
+      Height: '100vw',
       overflow: 'hidden',
       margin: '0 auto',
       textAlign: 'center',
+      display: 'inline-block',
     };
 
     this.loaded = false;
@@ -395,15 +398,6 @@ class Map extends Component {
     if (!this.debugMode) return;
     this.renderCounter += 1;
     // eslint-disable-next-line consistent-return
-    return (
-      <h3 style={{
-        position: 'fixed', bottom: 10, right: 10, zIndex: 1000,
-      }}
-      >
-        {`Render No ${this.renderCounter} Loop No ${this.loopCounter}`}
-
-      </h3>
-    );
   }
 
   render() {
